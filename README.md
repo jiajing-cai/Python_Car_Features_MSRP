@@ -1,2 +1,13 @@
-# car_features_MSRP
-Car Features and MSRP Data Analysis
+## Car_Features_MSRP
+# Car Features and MSRP Data Analysis
+
+## Data set
+The data set "car features and MSRP" contains some basic information of automobiles, such as engine parameters, brand, model, size, MPG（mile per gallon）, and MSRP (manufacturer's suggested retail price). Our team wants to study the factors that affect MSRP by modeling and analyzing the variables contained in the dataset. 
+In the data cleaning phase, we use the average to fill in the missing values of engine HP (69 missing), engine Cylinders (30 missing), and number of doors (6 missing). It is worth noting that in this dataset, all three columns of data are expressed as integers. Therefore, after calculating the average value, we adopt rounding processing to fit the actual situation (249 for engine HP, 6 for engine cyclists, and 3 for number of doors). At the same time, there are also two category variables missing data, among which engine fuel type and market category are missing 3 and 3742 data respectively. Considering that these two variables belong to category variables, in order to ensure that they do not affect the integrity of numerical variables, we use "unknown" to fill in the missing value.
+
+## Solutions and Methods
+After completing the basic preparation work, we analyzed the data set with the OLS model, and in order to optimize the results, we added dummy variables in addition to numerical variables (this method improved the fitting degree of the model from 45.2% to 47.1%). In addition, we also completed the construction and evaluation of the random forest model and gradient boosting model. By comparing these models, we can select the best model from it. At the end of the project, we summarize and evaluate all the above models.
+
+## Conclusion
+The accuracy of the linear regression model after adding variables is indeed improved. All of R2, MSE, MAE and RMSE are smaller than before. Also, by building a random forest model, we found the accuracy of adding two new variables is higher than just using the old variables, and the accuracy of the random forest model has been greatly improved compared to the linear regression model. For the gradient boosting model section, we use the same n_ estimator as in the other models, and the highest R ^ 2 value can reach 83.25%. This result proves that the fitting degree of the gradient boosting model is good, but compared with the random forest model, the accuracy is slightly lower.  
+To conclude, after establishing and optimizing these models, it can be observed that the random forest model with new variables is the most accurate model. Therefore, we recommend the random forest model. Also, under this model, according to feature importance evaluation, Engine HP and Engine Cylinders are the two most important factors in the pricing of cars.
